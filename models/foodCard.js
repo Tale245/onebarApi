@@ -37,4 +37,4 @@ const foodCardSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('card', foodCardSchema);
+module.exports = mongoose.model('foodCard', foodCardSchema);
