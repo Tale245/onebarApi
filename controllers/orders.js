@@ -18,6 +18,7 @@ module.exports.createOrder = (req, res, next) => {
     })
     .catch((e) => {
       if (e.name === 'ValidationError') {
+        console.log(e)
         next(new BadRequestError('Переданы некорректные данные'));
       } else if (e.code === 11000) {
         next(

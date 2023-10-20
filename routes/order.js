@@ -10,7 +10,7 @@ router.post(
     body: Joi.object().keys({
       nameWhoOrders: Joi.string().min(1).max(30).required(),
       foods: Joi.array().required(),
-      price: Joi.number().required()
+      price: Joi.number().required(),
     }),
   }),
   createOrder
