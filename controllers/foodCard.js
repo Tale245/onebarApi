@@ -129,3 +129,131 @@ module.exports.addHotDishesInArray = (req, res, next) => {
     { new: true }
   ).then((data) => res.send(data));
 };
+
+// Удаление холодных закусок в массив меню
+module.exports.deleteColdSnacksInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findByIdAndUpdate(
+        id,
+        { $pull: { coldSnacks: data.coldSnacks[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+// Удаление супов в массив меню
+module.exports.deleteSoupsInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findByIdAndUpdate(
+        id,
+        { $pull: { soups: data.soups[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+// Удаление пицц в массив меню
+module.exports.deletePizzaInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findById(id)
+        .orFail(() => {
+          throw new NotFoundError('Передан невалидный id пользователя');
+        })
+        .then((data) => {
+          FoodCard.findByIdAndUpdate(
+            id,
+            { $pull: { pizza: data.pizza[index] } },
+            { new: true }
+          ).then((data) => res.send(data));
+        });
+    });
+};
+// Удаление закусок в массив меню
+module.exports.deleteSnacksInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findByIdAndUpdate(
+        id,
+        { $pull: { snacks: data.snacks[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+
+// Удаление салатов в массив меню
+module.exports.deleteSaladsInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findByIdAndUpdate(
+        id,
+        { $pull: { salads: data.salads[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+// Удаление паст в массив меню
+module.exports.deletePastesInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findByIdAndUpdate(
+        id,
+        { $pull: { pastes: data.pastes[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+// Удаление закусок к пиву в массив меню
+module.exports.deleteBeerSnackInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findByIdAndUpdate(
+        id,
+        { $pull: { beerSnacks: data.beerSnacks[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+// Удаление  горячих блюд в массив меню
+module.exports.deleteHotDishesInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findByIdAndUpdate(
+        id,
+        { $pull: { hotDishes: data.hotDishes[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
