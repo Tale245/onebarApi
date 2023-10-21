@@ -6,19 +6,25 @@ const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
 
 module.exports.createOrder = (req, res, next) => {
-  const { nameWhoOrders, foods, price } = req.body;
+  const { nameWhoOrders, foods, price, doneStatus } = req.body;
   console.log(req.body);
-  Orders.create({ nameWhoOrders: nameWhoOrders, foods: foods, price: price })
+  Orders.create({
+    nameWhoOrders: nameWhoOrders,
+    foods: foods,
+    price: price,
+    doneStatus: doneStatus,
+  })
     .then((data) => {
       res.status(200).send({
         nameWhoOrders: data.nameWhoOrders,
         foods: data.foods,
         price: data.price,
+        doneStatus: data.doneStatus,
       });
     })
     .catch((e) => {
       if (e.name === 'ValidationError') {
-        console.log(e)
+        console.log(e);
         next(new BadRequestError('Переданы некорректные данные'));
       } else if (e.code === 11000) {
         next(
@@ -70,3 +76,31 @@ module.exports.deleteElementInArray = (req, res, next) => {
       }
     });
 };
+
+module.exports.updateDoneStatus = (req, res, next) => {
+  const { doneStatus } = req.body;
+  Orders.findById(req.params.id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then(() => {
+      Orders.findByIdAndUpdate(
+        req.params.id,
+        { $set: { doneStatus: doneStatus } },
+        { new: true }
+      )
+        .then((data) => {
+          res.status(STATUS__OK).send(data);
+        })
+        .catch((e) => next(e));
+    })
+    .catch((e) => {
+      if (e.name === 'CastError') {
+        next(new BadRequestError('Переданы некорректные данные'));
+      } else {
+        next(e);
+      }
+    });
+};
+
+

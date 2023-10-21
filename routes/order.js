@@ -1,8 +1,13 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 
-const { createOrder, getOrders, addElementInArray, deleteElementInArray } = require('../controllers/orders');
-
+const {
+  createOrder,
+  getOrders,
+  addElementInArray,
+  deleteElementInArray,
+  updateDoneStatus,
+} = require('../controllers/orders');
 
 router.post(
   '/createOrder',
@@ -11,14 +16,14 @@ router.post(
       nameWhoOrders: Joi.string().min(1).max(30).required(),
       foods: Joi.array().required(),
       price: Joi.number().required(),
+      doneStatus: Joi.boolean().required(),
     }),
   }),
   createOrder
 );
+router.put('/updateDoneStatus/:id', updateDoneStatus);
 router.get('/orders', getOrders);
 router.put('/addElementInArray', addElementInArray);
 router.delete('/deleteElementInArray', deleteElementInArray);
-
-
 
 module.exports = router;

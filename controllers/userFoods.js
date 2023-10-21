@@ -10,7 +10,13 @@ const BadRequestError = require('../Error/BadRequestError');
 module.exports.createUserCard = (req, res, next) => {
   const { name, description, price, ccal, imageLink } = req.body;
 
-  const food = { name: name, description: description, price: price, ccal: ccal, imageLink: imageLink };
+  const food = {
+    name: name,
+    description: description,
+    price: price,
+    ccal: ccal,
+    imageLink: imageLink,
+  };
 
   User.findById(req.user._id)
     .then((data) => {
@@ -23,6 +29,17 @@ module.exports.createUserCard = (req, res, next) => {
     });
 };
 
+module.exports.clearCart = (req, res, next) => {
+  User.findByIdAndUpdate(
+    req.user._id,
+    { $set: { foods: [] } },
+    { new: true, multi: true }
+  )
+    .then((data) => {
+      res.status(STATUS__OK).send(data);
+    })
+    .catch((e) => next(e));
+};
 
 module.exports.deleteUserCard = (req, res, next) => {
   User.findById(req.user._id)
@@ -30,16 +47,16 @@ module.exports.deleteUserCard = (req, res, next) => {
       throw new NotFoundError('Передан невалидный id пользователя');
     })
     .then((data) => {
-      console.log(req.params)
-        User.findByIdAndUpdate(
-          req.user._id,
-          { $pull: { foods: data.foods[req.params.index] } },
-          { new: true }
-        )
-          .then((data) => {
-            res.status(STATUS__OK).send(data);
-          })
-          .catch((e) => next(e));
+      console.log(req.params);
+      User.findByIdAndUpdate(
+        req.user._id,
+        { $pull: { foods: data.foods[req.params.index] } },
+        { new: true }
+      )
+        .then((data) => {
+          res.status(STATUS__OK).send(data);
+        })
+        .catch((e) => next(e));
     })
     .catch((e) => {
       if (e.name === 'CastError') {
@@ -49,6 +66,7 @@ module.exports.deleteUserCard = (req, res, next) => {
       }
     });
 };
+
 module.exports.isFavoriteUserCard = (req, res, next) => {
   const { isFavorite } = req.body;
   User.updateOne(

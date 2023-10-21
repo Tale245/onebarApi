@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const { urlRegExp } = require('../constants/constants');
 
-
 const ordersShema = new mongoose.Schema(
   {
     nameWhoOrders: {
@@ -41,6 +40,10 @@ const ordersShema = new mongoose.Schema(
     price: {
       type: Number,
       require: true,
+    },
+    doneStatus: {
+      type: Boolean,
+      enum: [true, false],
     },
   },
   {
