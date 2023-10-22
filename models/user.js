@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
     },
     admin: {
       type: String,
-      enum: ['yes', 'no'],
+      enum: [true, false],
     },
     foods: [
       {
