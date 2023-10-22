@@ -20,7 +20,7 @@ const foodCardSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },
@@ -50,7 +50,7 @@ const foodCardSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },
@@ -80,7 +80,7 @@ const foodCardSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },
@@ -110,7 +110,7 @@ const foodCardSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },
@@ -140,7 +140,7 @@ const foodCardSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },
@@ -170,7 +170,7 @@ const foodCardSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },
@@ -200,7 +200,7 @@ const foodCardSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },
@@ -230,7 +230,7 @@ const foodCardSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },

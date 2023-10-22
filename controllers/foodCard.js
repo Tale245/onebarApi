@@ -16,8 +16,8 @@ module.exports.getCards = (req, res, next) => {
     });
 };
 module.exports.createCard = async (req, res, next) => {
-  const { name, description, price, ccal, imageLink } = req.body;
-  FoodCard.create({ name, description, price, ccal, imageLink })
+  const { name, description, price, gram, imageLink } = req.body;
+  FoodCard.create({ name, description, price, gram, imageLink })
     .then((data) => res.status(STATUS__OK).send(data))
     .catch((e) => {
       if (e.name === 'ValidationError') {

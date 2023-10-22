@@ -37,7 +37,7 @@ router.post(
       name: Joi.string().required(),
       description: Joi.string().max(300),
       price: Joi.number().required(),
-      ccal: Joi.number().required(),
+      gram: Joi.number().required(),
       imageLink: Joi.string().required().pattern(urlRegExp),
     }),
   }),
