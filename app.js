@@ -16,9 +16,7 @@ const app = express();
 mongoose.connect('mongodb://127.0.0.1/oneBarServer');
 
 const options = {
-  origin: [
-    'http://localhost:3000'
-  ],
+  origin: ['http://localhost:3000', 'http://192.168.0.104:3000'],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,
@@ -27,7 +25,6 @@ const options = {
 };
 
 app.use('*', cors(options));
-
 app.use(cookieParser());
 app.use(bodyParser.json());
 
@@ -43,10 +40,13 @@ app.use(errors());
 
 app.use((err, req, res, next) => {
   const { statusCode = INTERNAL__SERVER_ERROR, message } = err;
-  console.log(err)
+  console.log(err);
   res.status(statusCode).send({
     // проверяем статус и выставляем сообщение в зависимости от него
-    message: statusCode === INTERNAL__SERVER_ERROR ? 'На сервере произошла ошибка' : message,
+    message:
+      statusCode === INTERNAL__SERVER_ERROR
+        ? 'На сервере произошла ошибка'
+        : message,
   });
   next();
 });

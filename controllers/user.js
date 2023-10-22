@@ -122,3 +122,29 @@ module.exports.updateUserAvatars = (req, res, next) => {
       }
     });
 };
+module.exports.updateLimit = (req, res, next) => {
+  const { newLimit } = req.body;
+  console.log(newLimit);
+  User.findById(req.params.id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then(() => {
+      User.findByIdAndUpdate(
+        req.params.id,
+        { $set: { limit: newLimit } },
+        { new: true }
+      )
+        .then((data) => {
+          res.status(STATUS__OK).send(data);
+        })
+        .catch((e) => next(e));
+    })
+    .catch((e) => {
+      if (e.name === 'CastError') {
+        next(new BadRequestError('Переданы некорректные данные'));
+      } else {
+        next(e);
+      }
+    });
+};

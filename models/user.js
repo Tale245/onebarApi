@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
       maxLength: 30,
     },
     admin: {
-      type: String,
+      type: Boolean,
       enum: [true, false],
     },
     foods: [
@@ -68,6 +68,10 @@ const userSchema = new mongoose.Schema(
       minLength: 3,
       select: false,
     },
+    limit: {
+      type: Number,
+      default: 0
+    }
   },
   {
     versionKey: false,

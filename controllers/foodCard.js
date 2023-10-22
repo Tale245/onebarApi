@@ -6,7 +6,7 @@ const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 const NotFoundError = require('../Error/NotFoundError');
 const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
-const id = '653402e71b6dc9ba2d4fb253';
+const id = '653510eed0b6ed998353521e';
 
 module.exports.getCards = (req, res, next) => {
   FoodCard.find({})
@@ -28,8 +28,24 @@ module.exports.createCard = async (req, res, next) => {
     });
 };
 module.exports.createFoodMenu = async (req, res, next) => {
-  const { coldSnacks, soups, snacks, salads, pastes, beerSnacks, hotDishes } =
-    req.body;
+  const {
+    coldSnacks,
+    soups,
+    snacks,
+    salads,
+    pastes,
+    beerSnacks,
+    hotDishes,
+    pizza,
+    coldSnacksTitle,
+    soupsTitle,
+    snacksTitle,
+    saladsTitle,
+    pastesTitle,
+    beerSnacksTitle,
+    hotDishesTitle,
+    pizzaTitle,
+  } = req.body;
   FoodCard.create({
     coldSnacks,
     soups,
@@ -38,6 +54,15 @@ module.exports.createFoodMenu = async (req, res, next) => {
     pastes,
     beerSnacks,
     hotDishes,
+    pizza,
+    coldSnacksTitle,
+    soupsTitle,
+    snacksTitle,
+    saladsTitle,
+    pastesTitle,
+    beerSnacksTitle,
+    hotDishesTitle,
+    pizzaTitle,
   })
     .then((data) => res.status(STATUS__OK).send(data))
     .catch((e) => {

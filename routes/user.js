@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 
-const { getUsersInfo, updateUserInfo, updateUserAvatars, getMyInfo } = require('../controllers/user');
+const { getUsersInfo, updateUserInfo, updateUserAvatars, getMyInfo, updateLimit } = require('../controllers/user');
 
 const { urlRegExp } = require('../constants/constants');
 
@@ -23,5 +23,6 @@ router.patch('/users/me/avatars', celebrate({
         fourthAvatar: Joi.string().pattern(urlRegExp),
     })
 }), updateUserAvatars);
+router.put('/updateLimit/:id', updateLimit)
 
 module.exports = router;
