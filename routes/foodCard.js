@@ -4,10 +4,6 @@ const { celebrate, Joi } = require('celebrate');
 const {
   getCards,
   createCard,
-  likeCard,
-  dislikeCard,
-  deleteCard,
-  isFavorite,
   createFoodMenu,
   addSnacksInArray,
   addColdSnacksInArray,
@@ -30,19 +26,6 @@ const { urlRegExp } = require('../constants/constants');
 const { clearCart } = require('../controllers/userFoods');
 
 router.get('/foodMenu', getCards);
-router.post(
-  '/create/card',
-  celebrate({
-    body: Joi.object().keys({
-      name: Joi.string().required(),
-      description: Joi.string().max(300),
-      price: Joi.number().required(),
-      gram: Joi.number().required(),
-      imageLink: Joi.string().required().pattern(urlRegExp),
-    }),
-  }),
-  createCard
-);
 
 router.delete('/clearCart', clearCart);
 // Создаем меню

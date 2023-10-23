@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema(
           type: Number,
           require: true,
         },
-        ccal: {
+        gram: {
           type: Number,
           require: true,
         },

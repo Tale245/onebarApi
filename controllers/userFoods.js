@@ -8,13 +8,13 @@ const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
 
 module.exports.createUserCard = (req, res, next) => {
-  const { name, description, price, ccal, imageLink } = req.body;
-
+  const { name, description, price, gram, imageLink } = req.body;
+  console.log(req.body)
   const food = {
     name: name,
     description: description,
     price: price,
-    ccal: ccal,
+    gram: gram,
     imageLink: imageLink,
   };
 
