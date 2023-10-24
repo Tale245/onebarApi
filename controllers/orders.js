@@ -4,6 +4,7 @@ const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 const NotFoundError = require('../Error/NotFoundError');
 const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
+const wss = require('../app');
 
 module.exports.createOrder = (req, res, next) => {
   const { nameWhoOrders, foods, price, doneStatus } = req.body;

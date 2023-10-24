@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const userRouter = require('./routes/user');
 const loginRouter = require('./routes/login');
 const cardRouter = require('./routes/foodCard');
+const BarCardRouter = require('./routes/foodCardBar');
 const orderRouter = require('./routes/order');
 const userCardRouter = require('./routes/userCard');
 const { errors } = require('celebrate');
@@ -33,6 +34,7 @@ app.use('/', loginRouter);
 app.use(auth);
 app.use('/', userRouter);
 app.use('/', cardRouter);
+app.use('/', BarCardRouter);
 app.use('/', userCardRouter);
 app.use('/', orderRouter);
 

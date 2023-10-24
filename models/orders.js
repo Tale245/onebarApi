@@ -35,6 +35,7 @@ const ordersShema = new mongoose.Schema(
             },
           },
         },
+        
       },
     ],
     price: {
@@ -44,6 +45,10 @@ const ordersShema = new mongoose.Schema(
     doneStatus: {
       type: Boolean,
       enum: [true, false],
+    },
+    createsAt: {
+      type: Date,
+      default: Date.now,
     },
   },
   {
