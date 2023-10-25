@@ -40,6 +40,8 @@ const {
   deleteVodkaInArray,
   deleteLiqueursInArray,
   createFoodMenuBar,
+  addHookahsInArray,
+  deleteHookahsInArray,
 } = require('../controllers/foodCardBar');
 
 router.get('/foodMenuBar', getCards);
@@ -47,6 +49,8 @@ router.get('/foodMenuBar', getCards);
 router.post('/createFoodMenuBar', createFoodMenuBar);
 // Добавляем холодные закуски в меню
 router.put('/addCigarettesInMenu', addCigarettesInArray);
+// Добавляем холодные закуски в меню
+router.put('/addHookahsInMenu', addHookahsInArray);
 // Добавляем супы в меню
 router.put('/addJuiceInMenu', addJuiceInArray);
 // Добавляем холодные закуски в меню
@@ -85,6 +89,8 @@ router.put('/addLiqueursInMenu', addLiqueursInArray);
 
 // Добавляем холодные закуски в меню
 router.delete('/deleteCigarettesInMenu', deleteCigarettesInArray);
+// Добавляем холодные закуски в меню
+router.delete('/deleteHookahsInMenu', deleteHookahsInArray);
 // Добавляем супы в меню
 router.delete('/deleteJuiceInMenu', deleteJuiceInArray);
 // Добавляем холодные закуски в меню

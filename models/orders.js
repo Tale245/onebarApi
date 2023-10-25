@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const { urlRegExp } = require('../constants/constants');
 
+const objectId = mongoose.Schema.Types.ObjectId;
+
 const ordersShema = new mongoose.Schema(
   {
     nameWhoOrders: {
@@ -49,6 +51,11 @@ const ordersShema = new mongoose.Schema(
     createsAt: {
       type: Date,
       default: Date.now,
+    },
+    owner: {
+      type: objectId,
+      required: true,
+      ref: 'user',
     },
   },
   {

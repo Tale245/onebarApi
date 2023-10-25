@@ -17,7 +17,7 @@ const app = express();
 mongoose.connect('mongodb://127.0.0.1/oneBarServer');
 
 const options = {
-  origin: ['http://localhost:3000', 'http://192.168.0.104:3000'],
+  origin: ['http://localhost:3000', 'http://192.168.0.104:3000',  'http://192.168.0.113:3000'],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,

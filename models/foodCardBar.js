@@ -34,6 +34,36 @@ const foodCardBarSchema = new mongoose.Schema(
         },
       },
     ],
+    hookahs: [
+      {
+        name: {
+          type: String,
+          require: true,
+        },
+        description: {
+          type: String,
+          require: false,
+          maxLength: 300,
+        },
+        price: {
+          type: Number,
+          require: true,
+        },
+        gram: {
+          type: Number,
+          require: false
+        },
+        linkImage: {
+          type: String,
+          require: true,
+          validate: {
+            validator(v) {
+              return urlRegExp.test(v);
+            },
+          },
+        },
+      },
+    ],
     juice: [
       {
         name: {
@@ -547,6 +577,10 @@ const foodCardBarSchema = new mongoose.Schema(
     cigarettesTitle: {
       type: String,
       default: 'Сигареты',
+    },
+    hookahsTitle: {
+      type: String,
+      default: 'Кальяны',
     },
     juiceTitle: {
       type: String,

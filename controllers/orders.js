@@ -6,22 +6,23 @@ const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
 const wss = require('../app');
 
-module.exports.createOrder = (req, res, next) => {
+module.exports.createOrder = async (req, res, next) => {
+  const owner = req.user._id;
   const { nameWhoOrders, foods, price, doneStatus } = req.body;
   console.log(req.body);
-  Orders.create({
+  
+  const order = await Orders.create({
     nameWhoOrders: nameWhoOrders,
     foods: foods,
     price: price,
     doneStatus: doneStatus,
-  })
+    owner: owner,
+  });
+
+  order
+    .populate(['owner'])
     .then((data) => {
-      res.status(200).send({
-        nameWhoOrders: data.nameWhoOrders,
-        foods: data.foods,
-        price: data.price,
-        doneStatus: data.doneStatus,
-      });
+      res.status(200).send(data);
     })
     .catch((e) => {
       if (e.name === 'ValidationError') {

@@ -6,7 +6,7 @@ const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 const NotFoundError = require('../Error/NotFoundError');
 const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
-const id = '6537c79e71333866b189fc9c';
+const id = '65393afe054d5f3d35c4a889';
 
 module.exports.getCards = (req, res, next) => {
   FoodCardBar.find({})
@@ -18,6 +18,7 @@ module.exports.getCards = (req, res, next) => {
 module.exports.createFoodMenuBar = async (req, res, next) => {
   const {
     cigarettes,
+    hookahs,
     juice,
     coffee,
     tea,
@@ -38,6 +39,7 @@ module.exports.createFoodMenuBar = async (req, res, next) => {
   } = req.body;
   FoodCardBar.create({
     cigarettes,
+    hookahs,
     juice,
     coffee,
     tea,
@@ -73,6 +75,17 @@ module.exports.addCigarettesInArray = (req, res, next) => {
   FoodCardBar.findByIdAndUpdate(
     id,
     { $addToSet: { cigarettes: newElement } },
+    { new: true }
+  ).then((data) => res.send(data)).catch((e) => next(e))
+};
+
+// Добавление Сигарет в массив меню
+module.exports.addHookahsInArray = (req, res, next) => {
+  const { newElement } = req.body;
+
+  FoodCardBar.findByIdAndUpdate(
+    id,
+    { $addToSet: { hookahs: newElement } },
     { new: true }
   ).then((data) => res.send(data)).catch((e) => next(e))
 };
@@ -258,6 +271,21 @@ module.exports.deleteCigarettesInArray = (req, res, next) => {
       FoodCardBar.findByIdAndUpdate(
         id,
         { $pull: { cigarettes: data.cigarettes[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+// Удаление cigarettes в массив меню
+module.exports.deleteHookahsInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCardBar.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCardBar.findByIdAndUpdate(
+        id,
+        { $pull: { hookahs: data.hookahs[index] } },
         { new: true }
       ).then((data) => res.send(data));
     });
