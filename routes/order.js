@@ -7,6 +7,7 @@ const {
   addElementInArray,
   deleteElementInArray,
   updateDoneStatus,
+  getReceipt,
 } = require('../controllers/orders');
 
 router.post(
@@ -25,5 +26,6 @@ router.put('/updateDoneStatus/:id', updateDoneStatus);
 router.get('/orders', getOrders);
 router.put('/addElementInArray', addElementInArray);
 router.delete('/deleteElementInArray', deleteElementInArray);
+router.post('/download', getReceipt)
 
 module.exports = router;

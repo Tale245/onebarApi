@@ -21,7 +21,7 @@ const foodCardBarSchema = new mongoose.Schema(
         },
         gram: {
           type: Number,
-          require: false
+          require: false,
         },
         linkImage: {
           type: String,
@@ -31,6 +31,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -48,17 +54,16 @@ const foodCardBarSchema = new mongoose.Schema(
         price: {
           type: Number,
           require: false,
-          default: 700
+          default: 700,
         },
         priceRelax: {
           type: Number,
           require: false,
-          default: 900
-
+          default: 900,
         },
         gram: {
           type: Number,
-          require: false
+          require: false,
         },
         linkImage: {
           type: String,
@@ -68,6 +73,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -99,6 +110,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     coffee: [
@@ -128,6 +145,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -159,6 +182,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     bottledBeer: [
@@ -188,6 +217,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -219,6 +254,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     champagne: [
@@ -248,6 +289,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -279,6 +326,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     aperatives: [
@@ -308,6 +361,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -339,6 +398,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     cognac: [
@@ -368,6 +433,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -399,6 +470,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     whiskey: [
@@ -428,6 +505,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -459,6 +542,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     tequila: [
@@ -488,6 +577,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -519,6 +614,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     vodka: [
@@ -549,6 +650,12 @@ const foodCardBarSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     liqueurs: [
@@ -578,6 +685,12 @@ const foodCardBarSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],

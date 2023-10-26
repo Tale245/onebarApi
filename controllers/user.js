@@ -29,7 +29,7 @@ module.exports.getMyInfo = (req, res, next) => {
     });
 };
 module.exports.createUser = (req, res, next) => {
-  const { name, admin, email, password, codeWord } = req.body;
+  const { name, admin, waiter, email, password, codeWord } = req.body;
 
   bcrypt
     .hash(password, 10)
@@ -38,6 +38,7 @@ module.exports.createUser = (req, res, next) => {
         User.create({
           name,
           admin,
+          waiter,
           email,
           password: hash,
           codeWord: codeWordHash,

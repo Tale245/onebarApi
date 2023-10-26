@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       enum: [true, false],
     },
+    waiter: {
+      type: Boolean,
+      enum: [true, false],
+    },
     foods: [
       {
         name: {
@@ -70,8 +74,8 @@ const userSchema = new mongoose.Schema(
     },
     limit: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   {
     versionKey: false,

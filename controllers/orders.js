@@ -1,4 +1,6 @@
 const Orders = require('../models/orders');
+const fs = require('fs');
+const path = require('path')
 const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 
 const NotFoundError = require('../Error/NotFoundError');
@@ -10,7 +12,7 @@ module.exports.createOrder = async (req, res, next) => {
   const owner = req.user._id;
   const { nameWhoOrders, foods, price, doneStatus } = req.body;
   console.log(req.body);
-  
+
   const order = await Orders.create({
     nameWhoOrders: nameWhoOrders,
     foods: foods,
@@ -103,4 +105,20 @@ module.exports.updateDoneStatus = (req, res, next) => {
         next(e);
       }
     });
+};
+module.exports.getReceipt = (req, res) => {
+  const {object, name} = req.body
+  console.log(name)
+  const data = JSON.stringify(object);
+  const fileName =`ordersReceipt\\${name}.txt`
+
+  fs.writeFile(fileName, data, function(err) {
+    if (err) {
+      return console.error(err); 
+
+    } else {
+      res.status(200).send(data)
+    }
+  
+});
 };

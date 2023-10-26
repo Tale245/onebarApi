@@ -21,6 +21,7 @@ const {
   deleteBeerSnackInArray,
   deleteHotDishesInArray,
   deletePizzaInArray,
+  updateHideStatus,
 } = require('../controllers/foodCard');
 const { urlRegExp } = require('../constants/constants');
 const { clearCart } = require('../controllers/userFoods');
@@ -64,4 +65,5 @@ router.delete('/deleteHotDishesInMenu', deleteHotDishesInArray);
 // Добавляем пиццу в меню
 router.delete('/deletePizzaInMenu', deletePizzaInArray);
 
+router.put('/updateHide/:id', updateHideStatus)
 module.exports = router;

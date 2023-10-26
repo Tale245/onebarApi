@@ -6,7 +6,7 @@ const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 const NotFoundError = require('../Error/NotFoundError');
 const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
-const id = '65393b02054d5f3d35c4a88b';
+const id = '653ae86b9686be53cfef1ee9';
 
 module.exports.getCards = (req, res, next) => {
   FoodCard.find({})
@@ -280,5 +280,31 @@ module.exports.deleteHotDishesInArray = (req, res, next) => {
         { $pull: { hotDishes: data.hotDishes[index] } },
         { new: true }
       ).then((data) => res.send(data));
+    });
+};
+module.exports.updateHideStatus = (req, res, next) => {
+  const { hideStatus, id } = req.body;
+  FoodCard.findById(req.params.id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then(() => {
+      FoodCard.findByIdAndUpdate(
+        req.params.id,
+        { $set: { 'coldSnacks.hide': hideStatus } },
+        { new: true }
+      )
+        .then((data) => {
+          res.status(STATUS__OK).send(data);
+        })
+        .catch((e) => next(e));
+    })
+    .catch((e) => {
+      if (e.name === 'CastError') {
+        console.log(e);
+        next(new BadRequestError('Переданы некорректные данные'));
+      } else {
+        next(e);
+      }
     });
 };

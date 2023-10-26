@@ -33,6 +33,12 @@ const foodCardSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     soups: [
@@ -62,6 +68,12 @@ const foodCardSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -93,6 +105,12 @@ const foodCardSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     snacks: [
@@ -122,6 +140,12 @@ const foodCardSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -153,6 +177,12 @@ const foodCardSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     pastes: [
@@ -182,6 +212,12 @@ const foodCardSchema = new mongoose.Schema(
               return urlRegExp.test(v);
             },
           },
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
         },
       },
     ],
@@ -213,6 +249,12 @@ const foodCardSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     hotDishes: [
@@ -243,39 +285,52 @@ const foodCardSchema = new mongoose.Schema(
             },
           },
         },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
       },
     ],
     coldSnacksTitle: {
       type: String,
-      require: true,
+      default: 'Холодные закуски',
     },
     soupsTitle: {
       type: String,
-      require: true,
+      default: 'Супы',
+
     },
     pizzaTitle: {
       type: String,
-      require: true,
+      default: 'Пицца',
+
     },
     snacksTitle: {
       type: String,
-      require: true,
+      default: 'Закуски',
+
     },
     saladsTitle: {
       type: String,
-      require: true,
+      default: 'Салаты',
+
     },
     pastesTitle: {
       type: String,
-      require: true,
+      default: 'Пасты',
+
     },
     beerSnacksTitle: {
       type: String,
-      require: true,
+      default: 'Закуски к пиву',
+
     },
     hotDishesTitle: {
       type: String,
-      require: true,
+      default: 'Горячие блюда',
+
     },
   },
   {
