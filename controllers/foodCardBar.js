@@ -76,7 +76,9 @@ module.exports.addCigarettesInArray = (req, res, next) => {
     id,
     { $addToSet: { cigarettes: newElement } },
     { new: true }
-  ).then((data) => res.send(data)).catch((e) => next(e))
+  )
+    .then((data) => res.send(data))
+    .catch((e) => next(e));
 };
 
 // Добавление Сигарет в массив меню
@@ -87,7 +89,9 @@ module.exports.addHookahsInArray = (req, res, next) => {
     id,
     { $addToSet: { hookahs: newElement } },
     { new: true }
-  ).then((data) => res.send(data)).catch((e) => next(e))
+  )
+    .then((data) => res.send(data))
+    .catch((e) => next(e));
 };
 // Добавление сока в массив меню
 module.exports.addJuiceInArray = (req, res, next) => {
@@ -107,7 +111,9 @@ module.exports.addCoffeeInArray = (req, res, next) => {
     id,
     { $addToSet: { coffee: newElement } },
     { new: true }
-  ).then((data) => res.send(data)).catch((e) => next(e))
+  )
+    .then((data) => res.send(data))
+    .catch((e) => next(e));
 };
 // Добавление чая в массив меню
 module.exports.addTeaInArray = (req, res, next) => {

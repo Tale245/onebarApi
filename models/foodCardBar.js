@@ -47,7 +47,14 @@ const foodCardBarSchema = new mongoose.Schema(
         },
         price: {
           type: Number,
-          require: true,
+          require: false,
+          default: 700
+        },
+        priceRelax: {
+          type: Number,
+          require: false,
+          default: 900
+
         },
         gram: {
           type: Number,
