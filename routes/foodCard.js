@@ -22,6 +22,8 @@ const {
   deleteHotDishesInArray,
   deletePizzaInArray,
   updateHideStatus,
+  addIceCreamInArray,
+  deleteIceCreamInArray,
 } = require('../controllers/foodCard');
 const { urlRegExp } = require('../constants/constants');
 const { clearCart } = require('../controllers/userFoods');
@@ -33,6 +35,8 @@ router.delete('/clearCart', clearCart);
 router.post('/createFoodMenu', createFoodMenu);
 // Добавляем холодные закуски в меню
 router.put('/addColdSnacksInMenu', addColdSnacksInArray);
+// Добавляем холодные закуски в меню
+router.put('/addIceCreamInMenu', addIceCreamInArray);
 // Добавляем супы в меню
 router.put('/addSoupsInMenu', addSoupsInArray);
 // Добавляем холодные закуски в меню
@@ -50,6 +54,8 @@ router.put('/addPizzaInMenu', addPizzaInArray);
 
 // Добавляем холодные закуски в меню
 router.delete('/deleteColdSnacksInMenu', deleteColdSnacksInArray);
+// Добавляем холодные закуски в меню
+router.delete('/deleteIceCreamInMenu', deleteIceCreamInArray);
 // Добавляем супы в меню
 router.delete('/deleteSoupsInMenu', deleteSoupsInArray);
 // Добавляем холодные закуски в меню

@@ -6,7 +6,7 @@ const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 const NotFoundError = require('../Error/NotFoundError');
 const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
-const id = '653ae86b9686be53cfef1ee9';
+const id = '653bb194244a22c851f6478e';
 
 module.exports.getCards = (req, res, next) => {
   FoodCard.find({})
@@ -30,6 +30,7 @@ module.exports.createCard = async (req, res, next) => {
 module.exports.createFoodMenu = async (req, res, next) => {
   const {
     coldSnacks,
+    iceCream,
     soups,
     snacks,
     salads,
@@ -38,6 +39,7 @@ module.exports.createFoodMenu = async (req, res, next) => {
     hotDishes,
     pizza,
     coldSnacksTitle,
+    iceCreamTitle,
     soupsTitle,
     snacksTitle,
     saladsTitle,
@@ -48,6 +50,7 @@ module.exports.createFoodMenu = async (req, res, next) => {
   } = req.body;
   FoodCard.create({
     coldSnacks,
+    iceCream,
     soups,
     snacks,
     salads,
@@ -56,6 +59,7 @@ module.exports.createFoodMenu = async (req, res, next) => {
     hotDishes,
     pizza,
     coldSnacksTitle,
+    iceCreamTitle,
     soupsTitle,
     snacksTitle,
     saladsTitle,
@@ -81,6 +85,16 @@ module.exports.addColdSnacksInArray = (req, res, next) => {
   FoodCard.findByIdAndUpdate(
     id,
     { $addToSet: { coldSnacks: newElement } },
+    { new: true }
+  ).then((data) => res.send(data));
+};
+// Добавление холодных закусок в массив меню
+module.exports.addIceCreamInArray = (req, res, next) => {
+  const { newElement } = req.body;
+
+  FoodCard.findByIdAndUpdate(
+    id,
+    { $addToSet: { iceCream: newElement } },
     { new: true }
   ).then((data) => res.send(data));
 };
@@ -166,6 +180,21 @@ module.exports.deleteColdSnacksInArray = (req, res, next) => {
       FoodCard.findByIdAndUpdate(
         id,
         { $pull: { coldSnacks: data.coldSnacks[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+// Удаление холодных закусок в массив меню
+module.exports.deleteIceCreamInArray = (req, res, next) => {
+  const { index } = req.body;
+  FoodCard.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCard.findByIdAndUpdate(
+        id,
+        { $pull: { iceCream: data.iceCream[index] } },
         { new: true }
       ).then((data) => res.send(data));
     });

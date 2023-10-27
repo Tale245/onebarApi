@@ -36,6 +36,37 @@ const foodCardSchema = new mongoose.Schema(
         },
       },
     ],
+    iceCream: [
+      {
+        name: {
+          type: String,
+          require: true,
+        },
+        description: {
+          type: String,
+          require: false,
+          maxLength: 300,
+        },
+        price: {
+          type: Number,
+          require: true,
+        },
+        gram: {
+          type: Number,
+          require: true,
+        },
+        linkImage: {
+          type: String,
+          require: true,
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
+      },
+    ],
     soups: [
       {
         name: {
@@ -256,6 +287,10 @@ const foodCardSchema = new mongoose.Schema(
     coldSnacksTitle: {
       type: String,
       default: 'Холодные закуски',
+    },
+    iceCreamTitle: {
+      type: String,
+      default: 'Мороженое',
     },
     soupsTitle: {
       type: String,
