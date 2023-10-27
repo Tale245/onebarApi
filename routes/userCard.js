@@ -50,7 +50,7 @@ router.post(
       description: Joi.string().max(300),
       price: Joi.number().required(),
       gram: Joi.number().required(),
-      imageLink: Joi.string().required().pattern(urlRegExp),
+      imageLink: Joi.string().required()
     }),
   }),
   createUserCard

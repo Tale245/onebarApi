@@ -27,11 +27,6 @@ const foodCardSchema = new mongoose.Schema(
         linkImage: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
         hide: {
           type: Boolean,
@@ -63,11 +58,6 @@ const foodCardSchema = new mongoose.Schema(
         linkImage: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
         hide: {
           type: Boolean,
@@ -99,11 +89,6 @@ const foodCardSchema = new mongoose.Schema(
         linkImage: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
         hide: {
           type: Boolean,
@@ -135,11 +120,6 @@ const foodCardSchema = new mongoose.Schema(
         linkImage: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
         hide: {
           type: Boolean,
@@ -171,11 +151,6 @@ const foodCardSchema = new mongoose.Schema(
         linkImage: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
         hide: {
           type: Boolean,
@@ -207,11 +182,6 @@ const foodCardSchema = new mongoose.Schema(
         linkImage: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
         hide: {
           type: Boolean,
@@ -243,11 +213,6 @@ const foodCardSchema = new mongoose.Schema(
         linkImage: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
         hide: {
           type: Boolean,
@@ -279,11 +244,6 @@ const foodCardSchema = new mongoose.Schema(
         linkImage: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
         hide: {
           type: Boolean,

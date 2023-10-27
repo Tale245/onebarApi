@@ -43,11 +43,6 @@ const userSchema = new mongoose.Schema(
         imageLink: {
           type: String,
           require: true,
-          validate: {
-            validator(v) {
-              return urlRegExp.test(v);
-            },
-          },
         },
       },
     ],
