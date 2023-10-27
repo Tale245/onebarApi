@@ -8,6 +8,7 @@ const cardRouter = require('./routes/foodCard');
 const BarCardRouter = require('./routes/foodCardBar');
 const orderRouter = require('./routes/order');
 const userCardRouter = require('./routes/userCard');
+const downloadRouter = require('./routes/download');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const auth = require('./middlewares/auth');
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.use('/', loginRouter);
+app.use('/', downloadRouter);
 
 app.use(auth);
 app.use('/', userRouter);

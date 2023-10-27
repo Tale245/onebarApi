@@ -1,6 +1,6 @@
 const Orders = require('../models/orders');
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
 const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 
 const NotFoundError = require('../Error/NotFoundError');
@@ -107,18 +107,27 @@ module.exports.updateDoneStatus = (req, res, next) => {
     });
 };
 module.exports.getReceipt = (req, res) => {
-  const {object, name} = req.body
-  console.log(name)
+  const { object, name } = req.body;
+  console.log(name);
   const data = JSON.stringify(object);
-  const fileName =`ordersReceipt\\${name}.txt`
+  const fileName = `ordersReceipt\\${name}.txt`;
 
-  fs.writeFile(fileName, data, function(err) {
+  fs.writeFile(fileName, data, function (err) {
     if (err) {
-      return console.error(err); 
-
+      return console.error(err);
     } else {
-      res.status(200).send(data)
+      res.set({
+        'Content-Disposition': `attachment; filename="${fileName}"`,
+        'Content-Type': 'text/plain',
+      });
+      const fileStream = fs.createReadStream(fileName);
+      fileStream.pipe(res);
+      fileStream.on('close', () => {
+        fs.unlink(fileName, (err) => {
+          if (err) console.error('Ошибка при удалении файла:', err);
+          else console.log('Файл успешно удален.');
+        });
+      });
     }
-  
-});
+  });
 };
