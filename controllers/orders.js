@@ -81,11 +81,12 @@ module.exports.deleteElementInArray = (req, res, next) => {
     });
 };
 
+
 module.exports.updateDoneStatus = (req, res, next) => {
   const { doneStatus } = req.body;
   Orders.findById(req.params.id)
     .orFail(() => {
-      throw new NotFoundError('Передан невалидный id пользователя');
+      throw new NotFoundError('Передан невалидный id заказа');
     })
     .then(() => {
       Orders.findByIdAndUpdate(

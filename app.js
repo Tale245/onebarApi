@@ -7,6 +7,7 @@ const loginRouter = require('./routes/login');
 const cardRouter = require('./routes/foodCard');
 const BarCardRouter = require('./routes/foodCardBar');
 const orderRouter = require('./routes/order');
+const receiptRouter = require('./routes/receipt');
 const userCardRouter = require('./routes/userCard');
 const downloadRouter = require('./routes/download');
 const { errors } = require('celebrate');
@@ -39,6 +40,7 @@ app.use('/', cardRouter);
 app.use('/', BarCardRouter);
 app.use('/', userCardRouter);
 app.use('/', orderRouter);
+app.use('/', receiptRouter)
 
 app.use(errors());
 
