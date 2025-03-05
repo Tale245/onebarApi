@@ -6,7 +6,7 @@ const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 const NotFoundError = require('../Error/NotFoundError');
 const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
-const id = '6568f0659925afaa13ad69c4';
+const id = '67c4ce6f0b3ca9d7752e9a01';
 
 module.exports.getCards = (req, res, next) => {
   FoodCard.find({})
@@ -311,29 +311,53 @@ module.exports.deleteHotDishesInArray = (req, res, next) => {
       ).then((data) => res.send(data));
     });
 };
-module.exports.updateHideStatus = (req, res, next) => {
-  const { hideStatus, id } = req.body;
-  FoodCard.findById(req.params.id)
+// module.exports.updateHideStatus = (req, res, next) => {
+//   const { hideStatus, id } = req.body;
+//   FoodCard.findById(req.params.id)
+//     .orFail(() => {
+//       throw new NotFoundError('Передан невалидный id пользователя');
+//     })
+//     .then(() => {
+//       FoodCard.findByIdAndUpdate(
+//         req.params.id,
+//         { $set: { 'coldSnacks.hide': hideStatus } },
+//         { new: true }
+//       )
+//         .then((data) => {
+//           res.status(STATUS__OK).send(data);
+//         })
+//         .catch((e) => next(e));
+//     })
+//     .catch((e) => {
+//       if (e.name === 'CastError') {
+//         console.log(e);
+//         next(new BadRequestError('Переданы некорректные данные'));
+//       } else {
+//         next(e);
+//       }
+//     });
+// };
+
+//Меняем value объекта массива
+module.exports.changeValue = (req, res, next) => {
+  const { categories, categoriesValue, newValue, objectId } = req.body;
+
+  const findCategories = `${categories}._id`;
+
+  FoodCard.findById(id)
     .orFail(() => {
-      throw new NotFoundError('Передан невалидный id пользователя');
+      throw new NotFoundError('Передан невалидный id');
     })
     .then(() => {
-      FoodCard.findByIdAndUpdate(
-        req.params.id,
-        { $set: { 'coldSnacks.hide': hideStatus } },
-        { new: true }
+      FoodCard.updateOne(
+        {
+          _id: id,
+          [findCategories]: objectId,
+        },
+        { $set: { [`${categories}.$.${categoriesValue}`]: newValue } },
+        { arrayFilters: [{ 'elem._id': objectId }] }
       )
-        .then((data) => {
-          res.status(STATUS__OK).send(data);
-        })
+        .then((data) => res.send(data))
         .catch((e) => next(e));
-    })
-    .catch((e) => {
-      if (e.name === 'CastError') {
-        console.log(e);
-        next(new BadRequestError('Переданы некорректные данные'));
-      } else {
-        next(e);
-      }
     });
 };

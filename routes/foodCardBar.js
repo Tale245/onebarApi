@@ -42,6 +42,12 @@ const {
   createFoodMenuBar,
   addHookahsInArray,
   deleteHookahsInArray,
+  addCocktailsInArray,
+  addShotsInArray,
+  deleteCocktailsInArray,
+  deleteShotsInArray,
+  changeValue,
+  updateAll,
 } = require('../controllers/foodCardBar');
 
 router.get('/foodMenuBar', getCards);
@@ -85,7 +91,8 @@ router.put('/addTincturesInMenu', addTincturesInArray);
 router.put('/addVodkaInMenu', addVodkaInArray);
 // Добавляем пиццу в меню
 router.put('/addLiqueursInMenu', addLiqueursInArray);
-
+router.put('/addCocktailsInMenu', addCocktailsInArray);
+router.put('/addShotsInMenu', addShotsInArray);
 
 // Добавляем холодные закуски в меню
 router.delete('/deleteCigarettesInMenu', deleteCigarettesInArray);
@@ -125,5 +132,10 @@ router.delete('/deleteTincturesInMenu', deleteTincturesInArray);
 router.delete('/deleteVodkaInMenu', deleteVodkaInArray);
 // Добавляем пиццу в меню
 router.delete('/deleteLiqueursInMenu', deleteLiqueursInArray);
+router.delete('/deleteCocktailsInMenu', deleteCocktailsInArray);
+router.delete('/deleteShotsInMenu', deleteShotsInArray);
+
+//Меняем значение поля объекта массива
+router.put('/changeValueBarMenu', changeValue);
 
 module.exports = router;

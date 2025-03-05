@@ -33,6 +33,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     hookahs: [
@@ -70,6 +74,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     juice: [
@@ -100,6 +108,10 @@ const foodCardBarSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
         },
       },
     ],
@@ -132,6 +144,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     tea: [
@@ -162,6 +178,10 @@ const foodCardBarSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
         },
       },
     ],
@@ -194,6 +214,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     wine: [
@@ -224,6 +248,10 @@ const foodCardBarSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
         },
       },
     ],
@@ -256,6 +284,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     vermouth: [
@@ -286,6 +318,10 @@ const foodCardBarSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
         },
       },
     ],
@@ -318,6 +354,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     rum: [
@@ -348,6 +388,10 @@ const foodCardBarSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
         },
       },
     ],
@@ -380,6 +424,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     brandy: [
@@ -410,6 +458,10 @@ const foodCardBarSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
         },
       },
     ],
@@ -442,6 +494,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     gin: [
@@ -472,6 +528,10 @@ const foodCardBarSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
         },
       },
     ],
@@ -504,6 +564,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     tinctures: [
@@ -534,6 +598,10 @@ const foodCardBarSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
         },
       },
     ],
@@ -566,6 +634,10 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
       },
     ],
     liqueurs: [
@@ -597,8 +669,82 @@ const foodCardBarSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          require: true,
+          default: 'Напиток',
+        },
       },
     ],
+    cocktails: [
+      {
+        name: {
+          type: String,
+          require: true,
+        },
+        description: {
+          type: String,
+          require: true,
+        },
+        price: {
+          type: Number,
+          require: true,
+        },
+        gram: {
+          type: Number,
+          require: true,
+        },
+        linkImage: {
+          type: String,
+          require: true,
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
+      },
+    ],
+    shots: [
+      {
+        name: {
+          type: String,
+          require: true,
+        },
+        description: {
+          type: String,
+          require: true,
+        },
+        price: {
+          type: Number,
+          require: true,
+        },
+        gram: {
+          type: Number,
+          require: true,
+        },
+        linkImage: {
+          type: String,
+          require: true,
+        },
+        hide: {
+          type: Boolean,
+          require: false,
+          enum: [true, false],
+          default: false,
+        },
+        category: {
+          type: String,
+          default: 'Напиток',
+        },
+      },
+    ],
+
     cigarettesTitle: {
       type: String,
       default: 'Сигареты',
@@ -674,6 +820,14 @@ const foodCardBarSchema = new mongoose.Schema(
     liqueursTitle: {
       type: String,
       default: 'Ликёры',
+    },
+    cocktailsTitle: {
+      type: String,
+      default: 'Коктейли',
+    },
+    shotsTitle: {
+      type: String,
+      default: 'Шоты',
     },
   },
   {

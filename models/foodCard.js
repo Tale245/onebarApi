@@ -34,6 +34,11 @@ const foodCardSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
+        },
       },
     ],
     iceCream: [
@@ -64,6 +69,11 @@ const foodCardSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
         },
       },
     ],
@@ -96,6 +106,11 @@ const foodCardSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
+        },
       },
     ],
     pizza: [
@@ -126,6 +141,11 @@ const foodCardSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
         },
       },
     ],
@@ -158,6 +178,11 @@ const foodCardSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
+        },
       },
     ],
     salads: [
@@ -188,6 +213,11 @@ const foodCardSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
         },
       },
     ],
@@ -220,6 +250,11 @@ const foodCardSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
+        },
       },
     ],
     beerSnacks: [
@@ -251,6 +286,11 @@ const foodCardSchema = new mongoose.Schema(
           enum: [true, false],
           default: false,
         },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
+        },
       },
     ],
     hotDishes: [
@@ -281,6 +321,11 @@ const foodCardSchema = new mongoose.Schema(
           require: false,
           enum: [true, false],
           default: false,
+        },
+        category: {
+          type: String,
+          require: true,
+          default: 'Еда',
         },
       },
     ],

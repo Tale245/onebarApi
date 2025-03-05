@@ -17,7 +17,7 @@ router.post(
       nameWhoOrders: Joi.string().min(1).max(30).required(),
       foods: Joi.array().required(),
       price: Joi.number().required(),
-      doneStatus: Joi.boolean().required(),
+      doneStatus: Joi.boolean().required()
     }),
   }),
   createOrder

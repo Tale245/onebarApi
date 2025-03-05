@@ -44,6 +44,11 @@ const userSchema = new mongoose.Schema(
           type: String,
           require: true,
         },
+        category: {
+          type: String,
+          require: true,
+          enum: ['Еда', 'Напиток']
+        }
       },
     ],
     email: {

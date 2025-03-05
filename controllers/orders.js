@@ -18,7 +18,7 @@ module.exports.createOrder = async (req, res, next) => {
     foods: foods,
     price: price,
     doneStatus: doneStatus,
-    owner: owner,
+    owner: owner
   });
 
   order

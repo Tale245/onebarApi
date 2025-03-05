@@ -6,7 +6,8 @@ const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 const NotFoundError = require('../Error/NotFoundError');
 const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
-const id = '6568f0609925afaa13ad69c2';
+const id = '67c4d93851a9ae49ec324a44';
+
 
 module.exports.getCards = (req, res, next) => {
   FoodCardBar.find({})
@@ -36,6 +37,8 @@ module.exports.createFoodMenuBar = async (req, res, next) => {
     tinctures,
     vodka,
     liqueurs,
+    cocktails,
+    shots,
   } = req.body;
   FoodCardBar.create({
     cigarettes,
@@ -57,6 +60,8 @@ module.exports.createFoodMenuBar = async (req, res, next) => {
     tinctures,
     vodka,
     liqueurs,
+    cocktails,
+    shots,
   })
     .then((data) => res.status(STATUS__OK).send(data))
     .catch((e) => {
@@ -265,7 +270,26 @@ module.exports.addLiqueursInArray = (req, res, next) => {
     { new: true }
   ).then((data) => res.send(data));
 };
+// Добавление Коктейлей в меню
+module.exports.addCocktailsInArray = (req, res, next) => {
+  const { newElement } = req.body;
+  console.log(newElement);
+  FoodCardBar.findByIdAndUpdate(
+    id,
+    { $addToSet: { cocktails: newElement } },
+    { new: true }
+  ).then((data) => res.send(data));
+};
+// Добавление шотов в меню
+module.exports.addShotsInArray = (req, res, next) => {
+  const { newElement } = req.body;
 
+  FoodCardBar.findByIdAndUpdate(
+    id,
+    { $addToSet: { shots: newElement } },
+    { new: true }
+  ).then((data) => res.send(data));
+};
 // Удаление cigarettes в массив меню
 module.exports.deleteCigarettesInArray = (req, res, next) => {
   const { index } = req.body;
@@ -556,5 +580,62 @@ module.exports.deleteLiqueursInArray = (req, res, next) => {
         { $pull: { vermouth: data.vermouth[index] } },
         { new: true }
       ).then((data) => res.send(data));
+    });
+};
+// Удаление коктейлей из меню
+module.exports.deleteCocktailsInArray = (req, res, next) => {
+  const { index } = req.body;
+
+  console.log("index:", index);
+
+  FoodCardBar.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCardBar.findByIdAndUpdate(
+        id,
+        { $pull: { cocktails: data.cocktails[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+// Удаление шотов из меню
+module.exports.deleteShotsInArray = (req, res, next) => {
+  const { index } = req.body;
+
+  FoodCardBar.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id пользователя');
+    })
+    .then((data) => {
+      FoodCardBar.findByIdAndUpdate(
+        id,
+        { $pull: { shots: data.shots[index] } },
+        { new: true }
+      ).then((data) => res.send(data));
+    });
+};
+//Меняем value объекта массива
+module.exports.changeValue = (req, res, next) => {
+  const { categories, categoriesValue, newValue, objectId } = req.body;
+
+  const findCategories = `${categories}._id`;
+
+  FoodCardBar.findById(id)
+    .orFail(() => {
+      throw new NotFoundError('Передан невалидный id');
+    })
+    .then(() => {
+      FoodCardBar.updateOne(
+        {
+          _id: id,
+          [findCategories]: objectId,
+        },
+        { $set: { [`${categories}.$.${categoriesValue}`]: newValue } },
+        { arrayFilters: [{ 'elem._id': objectId }] }
+      )
+        .then((data) => res.send(data))
+        .catch((e) => next(e));
     });
 };

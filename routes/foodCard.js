@@ -24,6 +24,8 @@ const {
   updateHideStatus,
   addIceCreamInArray,
   deleteIceCreamInArray,
+  changeValue,
+  updateAll,
 } = require('../controllers/foodCard');
 const { urlRegExp } = require('../constants/constants');
 const { clearCart } = require('../controllers/userFoods');
@@ -71,5 +73,10 @@ router.delete('/deleteHotDishesInMenu', deleteHotDishesInArray);
 // Добавляем пиццу в меню
 router.delete('/deletePizzaInMenu', deletePizzaInArray);
 
-router.put('/updateHide/:id', updateHideStatus)
+// router.put('/updateHide/:id', updateHideStatus);
+
+// Изменение поля объекта массива
+router.put('/changeValueMenu', changeValue);
+
 module.exports = router;
+
