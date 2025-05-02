@@ -6,7 +6,7 @@ const { NOT__FOUND_ERROR, STATUS__OK } = require('../constants/constants');
 const NotFoundError = require('../Error/NotFoundError');
 const ForbiddenError = require('../Error/ForbiddenError');
 const BadRequestError = require('../Error/BadRequestError');
-const id = '67dd756faa2260cba96d58be';
+const id = '67e168e211b978d86e39d0f4';
 
 module.exports.getCards = (req, res, next) => {
   FoodCard.find({})
