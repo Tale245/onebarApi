@@ -107,7 +107,7 @@ module.exports.addJuiceInArray = (req, res, next) => {
     id,
     { $addToSet: { juice: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление кофе в массив меню
 module.exports.addCoffeeInArray = (req, res, next) => {
@@ -129,7 +129,7 @@ module.exports.addTeaInArray = (req, res, next) => {
     id,
     { $addToSet: { tea: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление бутилированого пива в массив меню
 module.exports.addBottledBeerInArray = (req, res, next) => {
@@ -139,7 +139,7 @@ module.exports.addBottledBeerInArray = (req, res, next) => {
     id,
     { $addToSet: { bottledBeer: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление вина в массив меню
 module.exports.addWineInArray = (req, res, next) => {
@@ -149,7 +149,7 @@ module.exports.addWineInArray = (req, res, next) => {
     id,
     { $addToSet: { wine: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление шампанского в массив меню
 module.exports.addChampagneInArray = (req, res, next) => {
@@ -159,7 +159,7 @@ module.exports.addChampagneInArray = (req, res, next) => {
     id,
     { $addToSet: { champagne: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление вермута в массив меню
 module.exports.addVermouthInArray = (req, res, next) => {
@@ -169,7 +169,7 @@ module.exports.addVermouthInArray = (req, res, next) => {
     id,
     { $addToSet: { vermouth: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление аперативов в массив меню
 module.exports.addAperativesInArray = (req, res, next) => {
@@ -179,7 +179,7 @@ module.exports.addAperativesInArray = (req, res, next) => {
     id,
     { $addToSet: { aperatives: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление рома в массив меню
 module.exports.addRumInArray = (req, res, next) => {
@@ -189,7 +189,7 @@ module.exports.addRumInArray = (req, res, next) => {
     id,
     { $addToSet: { rum: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление cognac в массив меню
 module.exports.addCognacInArray = (req, res, next) => {
@@ -199,7 +199,7 @@ module.exports.addCognacInArray = (req, res, next) => {
     id,
     { $addToSet: { cognac: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление brandy в массив меню
 module.exports.addBrandyInArray = (req, res, next) => {
@@ -209,7 +209,7 @@ module.exports.addBrandyInArray = (req, res, next) => {
     id,
     { $addToSet: { brandy: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление whiskey в массив меню
 module.exports.addWhiskeyInArray = (req, res, next) => {
@@ -219,7 +219,7 @@ module.exports.addWhiskeyInArray = (req, res, next) => {
     id,
     { $addToSet: { whiskey: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление gin в массив меню
 module.exports.addGinInArray = (req, res, next) => {
@@ -229,7 +229,7 @@ module.exports.addGinInArray = (req, res, next) => {
     id,
     { $addToSet: { gin: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление tequila в массив меню
 module.exports.addTequilaInArray = (req, res, next) => {
@@ -239,7 +239,7 @@ module.exports.addTequilaInArray = (req, res, next) => {
     id,
     { $addToSet: { tequila: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление tinctures в массив меню
 module.exports.addTincturesInArray = (req, res, next) => {
@@ -249,7 +249,7 @@ module.exports.addTincturesInArray = (req, res, next) => {
     id,
     { $addToSet: { tinctures: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление vodka в массив меню
 module.exports.addVodkaInArray = (req, res, next) => {
@@ -259,7 +259,7 @@ module.exports.addVodkaInArray = (req, res, next) => {
     id,
     { $addToSet: { vodka: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление liqueurs в массив меню
 module.exports.addLiqueursInArray = (req, res, next) => {
@@ -269,7 +269,7 @@ module.exports.addLiqueursInArray = (req, res, next) => {
     id,
     { $addToSet: { liqueurs: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление Коктейлей в меню
 module.exports.addCocktailsInArray = (req, res, next) => {
@@ -279,7 +279,7 @@ module.exports.addCocktailsInArray = (req, res, next) => {
     id,
     { $addToSet: { cocktails: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление шотов в меню
 module.exports.addShotsInArray = (req, res, next) => {
@@ -289,7 +289,7 @@ module.exports.addShotsInArray = (req, res, next) => {
     id,
     { $addToSet: { shots: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Удаление cigarettes в массив меню
 module.exports.deleteCigarettesInArray = (req, res, next) => {
@@ -303,8 +303,8 @@ module.exports.deleteCigarettesInArray = (req, res, next) => {
         id,
         { $pull: { cigarettes: data.cigarettes[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление cigarettes в массив меню
 module.exports.deleteHookahsInArray = (req, res, next) => {
@@ -318,8 +318,8 @@ module.exports.deleteHookahsInArray = (req, res, next) => {
         id,
         { $pull: { hookahs: data.hookahs[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление juice в массив меню
 module.exports.deleteJuiceInArray = (req, res, next) => {
@@ -333,8 +333,8 @@ module.exports.deleteJuiceInArray = (req, res, next) => {
         id,
         { $pull: { juice: data.juice[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление coffee в массив меню
 module.exports.deleteCoffeeInArray = (req, res, next) => {
@@ -353,9 +353,9 @@ module.exports.deleteCoffeeInArray = (req, res, next) => {
             id,
             { $pull: { coffee: data.coffee[index] } },
             { new: true }
-          ).then((data) => res.send(data));
-        });
-    });
+          ).then((data) => res.send(data)).catch((e) => next(e))
+        }).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление tea в массив меню
 module.exports.deleteTeaInArray = (req, res, next) => {
@@ -369,8 +369,8 @@ module.exports.deleteTeaInArray = (req, res, next) => {
         id,
         { $pull: { tea: data.tea[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 
 // Удаление bottledBeer в массив меню
@@ -385,8 +385,8 @@ module.exports.deleteBottledBeerInArray = (req, res, next) => {
         id,
         { $pull: { bottledBeer: data.bottledBeer[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление wine в массив меню
 module.exports.deleteWineInArray = (req, res, next) => {
@@ -400,8 +400,8 @@ module.exports.deleteWineInArray = (req, res, next) => {
         id,
         { $pull: { wine: data.wine[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление champagne в массив меню
 module.exports.deleteChampagneInArray = (req, res, next) => {
@@ -415,8 +415,8 @@ module.exports.deleteChampagneInArray = (req, res, next) => {
         id,
         { $pull: { champagne: data.champagne[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление vermouth в массив меню
 module.exports.deleteVermouthInArray = (req, res, next) => {
@@ -430,8 +430,8 @@ module.exports.deleteVermouthInArray = (req, res, next) => {
         id,
         { $pull: { vermouth: data.vermouth[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление aperatives в массив меню
 module.exports.deleteAperativesInArray = (req, res, next) => {
@@ -445,8 +445,8 @@ module.exports.deleteAperativesInArray = (req, res, next) => {
         id,
         { $pull: { aperatives: data.aperatives[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление rum в массив меню
 module.exports.deleteRumInArray = (req, res, next) => {
@@ -460,8 +460,8 @@ module.exports.deleteRumInArray = (req, res, next) => {
         id,
         { $pull: { rum: data.rum[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление cognac в массив меню
 module.exports.deleteCognachInArray = (req, res, next) => {
@@ -475,8 +475,8 @@ module.exports.deleteCognachInArray = (req, res, next) => {
         id,
         { $pull: { cognac: data.cognac[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление brandy в массив меню
 module.exports.deleteBrandyInArray = (req, res, next) => {
@@ -490,8 +490,8 @@ module.exports.deleteBrandyInArray = (req, res, next) => {
         id,
         { $pull: { brandy: data.brandy[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление whiskey в массив меню
 module.exports.deleteWhiskeyInArray = (req, res, next) => {
@@ -505,8 +505,8 @@ module.exports.deleteWhiskeyInArray = (req, res, next) => {
         id,
         { $pull: { whiskey: data.whiskey[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление gin в массив меню
 module.exports.deleteGinInArray = (req, res, next) => {
@@ -520,8 +520,8 @@ module.exports.deleteGinInArray = (req, res, next) => {
         id,
         { $pull: { gin: data.gin[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление tequila в массив меню
 module.exports.deleteTequilaInArray = (req, res, next) => {
@@ -535,8 +535,8 @@ module.exports.deleteTequilaInArray = (req, res, next) => {
         id,
         { $pull: { tequila: data.tequila[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление tinctures в массив меню
 module.exports.deleteTincturesInArray = (req, res, next) => {
@@ -550,8 +550,8 @@ module.exports.deleteTincturesInArray = (req, res, next) => {
         id,
         { $pull: { tinctures: data.tinctures[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление  vodka в массив меню
 module.exports.deleteVodkaInArray = (req, res, next) => {
@@ -565,8 +565,8 @@ module.exports.deleteVodkaInArray = (req, res, next) => {
         id,
         { $pull: { vodka: data.vodka[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление liqueurs в массив меню
 module.exports.deleteLiqueursInArray = (req, res, next) => {
@@ -580,8 +580,8 @@ module.exports.deleteLiqueursInArray = (req, res, next) => {
         id,
         { $pull: { vermouth: data.vermouth[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление коктейлей из меню
 module.exports.deleteCocktailsInArray = (req, res, next) => {
@@ -598,8 +598,8 @@ module.exports.deleteCocktailsInArray = (req, res, next) => {
         id,
         { $pull: { cocktails: data.cocktails[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление шотов из меню
 module.exports.deleteShotsInArray = (req, res, next) => {
@@ -614,8 +614,8 @@ module.exports.deleteShotsInArray = (req, res, next) => {
         id,
         { $pull: { shots: data.shots[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 //Меняем value объекта массива
 module.exports.changeValue = (req, res, next) => {
@@ -638,5 +638,5 @@ module.exports.changeValue = (req, res, next) => {
       )
         .then((data) => res.send(data))
         .catch((e) => next(e));
-    });
+    }).catch((e) => next(e))
 };

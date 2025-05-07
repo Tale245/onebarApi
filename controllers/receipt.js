@@ -13,7 +13,6 @@ module.exports.findMyReceipt = (req, res, next) => {
 module.exports.createReceipt = async (req, res, next) => {
   const owner = req.user._id;
   const { nameWhoOrders, foods, price } = req.body;
-  console.log(req.body);
 
   const order = await Receipt.create({
     nameWhoOrders: nameWhoOrders,
@@ -51,7 +50,6 @@ module.exports.addPositionInReceipt = (req, res, next) => {
     gram: gram,
     imageLink: imageLink,
   };
-  console.log("req.body:", req.body)
   Receipt.findById(req.params.id)
     .then((data) => {
       data.foods.push(food);

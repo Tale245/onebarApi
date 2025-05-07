@@ -42,7 +42,7 @@ module.exports.createOrder = async (req, res, next) => {
     });
 };
 module.exports.getOrders = (req, res, next) => {
-  Orders.find({}).then((data) => res.status(200).send(data));
+  Orders.find({}).then((data) => res.status(200).send(data)).catch((e) => next(e))
 };
 
 module.exports.addElementInArray = (req, res, next) => {
@@ -52,7 +52,7 @@ module.exports.addElementInArray = (req, res, next) => {
     id,
     { $addToSet: { foods: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 module.exports.deleteElementInArray = (req, res, next) => {
   const { id, index } = req.body;

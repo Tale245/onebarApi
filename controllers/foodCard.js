@@ -87,7 +87,7 @@ module.exports.addColdSnacksInArray = (req, res, next) => {
     id,
     { $addToSet: { coldSnacks: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление холодных закусок в массив меню
 module.exports.addIceCreamInArray = (req, res, next) => {
@@ -97,7 +97,7 @@ module.exports.addIceCreamInArray = (req, res, next) => {
     id,
     { $addToSet: { iceCream: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление супов в массив меню
 module.exports.addSoupsInArray = (req, res, next) => {
@@ -107,7 +107,7 @@ module.exports.addSoupsInArray = (req, res, next) => {
     id,
     { $addToSet: { soups: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление пицц в массив меню
 module.exports.addPizzaInArray = (req, res, next) => {
@@ -117,7 +117,7 @@ module.exports.addPizzaInArray = (req, res, next) => {
     id,
     { $addToSet: { pizza: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление закусок в массив меню
 module.exports.addSnacksInArray = (req, res, next) => {
@@ -127,7 +127,7 @@ module.exports.addSnacksInArray = (req, res, next) => {
     id,
     { $addToSet: { snacks: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление салатов в массив меню
 module.exports.addSaladsInArray = (req, res, next) => {
@@ -137,7 +137,7 @@ module.exports.addSaladsInArray = (req, res, next) => {
     id,
     { $addToSet: { salads: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление паст в массив меню
 module.exports.addPastesInArray = (req, res, next) => {
@@ -147,7 +147,7 @@ module.exports.addPastesInArray = (req, res, next) => {
     id,
     { $addToSet: { pastes: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление закусок к пиву в массив меню
 module.exports.addBeerSnackInArray = (req, res, next) => {
@@ -157,7 +157,7 @@ module.exports.addBeerSnackInArray = (req, res, next) => {
     id,
     { $addToSet: { beerSnacks: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 // Добавление  горячих блюд в массив меню
 module.exports.addHotDishesInArray = (req, res, next) => {
@@ -167,7 +167,7 @@ module.exports.addHotDishesInArray = (req, res, next) => {
     id,
     { $addToSet: { hotDishes: newElement } },
     { new: true }
-  ).then((data) => res.send(data));
+  ).then((data) => res.send(data)).catch((e) => next(e))
 };
 
 // Удаление холодных закусок в массив меню
@@ -182,8 +182,8 @@ module.exports.deleteColdSnacksInArray = (req, res, next) => {
         id,
         { $pull: { coldSnacks: data.coldSnacks[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление холодных закусок в массив меню
 module.exports.deleteIceCreamInArray = (req, res, next) => {
@@ -197,8 +197,8 @@ module.exports.deleteIceCreamInArray = (req, res, next) => {
         id,
         { $pull: { iceCream: data.iceCream[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление супов в массив меню
 module.exports.deleteSoupsInArray = (req, res, next) => {
@@ -212,8 +212,8 @@ module.exports.deleteSoupsInArray = (req, res, next) => {
         id,
         { $pull: { soups: data.soups[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление пицц в массив меню
 module.exports.deletePizzaInArray = (req, res, next) => {
@@ -232,9 +232,9 @@ module.exports.deletePizzaInArray = (req, res, next) => {
             id,
             { $pull: { pizza: data.pizza[index] } },
             { new: true }
-          ).then((data) => res.send(data));
-        });
-    });
+          ).then((data) => res.send(data)).catch((e) => next(e))
+        }).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление закусок в массив меню
 module.exports.deleteSnacksInArray = (req, res, next) => {
@@ -248,8 +248,8 @@ module.exports.deleteSnacksInArray = (req, res, next) => {
         id,
         { $pull: { snacks: data.snacks[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 
 // Удаление салатов в массив меню
@@ -264,8 +264,8 @@ module.exports.deleteSaladsInArray = (req, res, next) => {
         id,
         { $pull: { salads: data.salads[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление паст в массив меню
 module.exports.deletePastesInArray = (req, res, next) => {
@@ -279,8 +279,8 @@ module.exports.deletePastesInArray = (req, res, next) => {
         id,
         { $pull: { pastes: data.pastes[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление закусок к пиву в массив меню
 module.exports.deleteBeerSnackInArray = (req, res, next) => {
@@ -294,8 +294,8 @@ module.exports.deleteBeerSnackInArray = (req, res, next) => {
         id,
         { $pull: { beerSnacks: data.beerSnacks[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // Удаление  горячих блюд в массив меню
 module.exports.deleteHotDishesInArray = (req, res, next) => {
@@ -309,8 +309,8 @@ module.exports.deleteHotDishesInArray = (req, res, next) => {
         id,
         { $pull: { hotDishes: data.hotDishes[index] } },
         { new: true }
-      ).then((data) => res.send(data));
-    });
+      ).then((data) => res.send(data)).catch((e) => next(e))
+    }).catch((e) => next(e))
 };
 // module.exports.updateHideStatus = (req, res, next) => {
 //   const { hideStatus, id } = req.body;
@@ -360,5 +360,5 @@ module.exports.changeValue = (req, res, next) => {
       )
         .then((data) => res.send(data))
         .catch((e) => next(e));
-    });
+    }).catch((e) => next(e))
 };

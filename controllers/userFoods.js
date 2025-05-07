@@ -9,7 +9,6 @@ const BadRequestError = require('../Error/BadRequestError');
 
 module.exports.createUserCard = (req, res, next) => {
   const { name, description, price, gram, imageLink, category } = req.body;
-  console.log(req.body)
   const food = {
     name: name,
     description: description,
@@ -78,10 +77,7 @@ module.exports.isFavoriteUserCard = (req, res, next) => {
 
 // поставить лайк карточке пользователя
 module.exports.likeUserCard = (req, res, next) => {
-  console.log(req.params);
-
   const owner = req.user._id;
-  console.log(req.params.ownerID);
   User.findById(req.params.ownerID)
     .then((data) => {
       User.updateOne(
