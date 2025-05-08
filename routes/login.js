@@ -4,22 +4,25 @@ const { createUser, login } = require('../controllers/user');
 
 const { celebrate, Joi } = require('celebrate');
 
+// Авторизация
 router.post('/signin', celebrate({
-    body: Joi.object().keys({
-      email: Joi.string().required().email(),
-      password: Joi.string().min(8).required(),
-      codeWord: Joi.string().min(3).required(),
-    }),
-  }), login);
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().min(8).required(),
+    codeWord: Joi.string().min(3).required(),
+  }),
+}), login);
+
+// Регистрация
 router.post('/signup', celebrate({
-    body: Joi.object().keys({
-      name: Joi.string().min(1).max(30).required(),
-      admin: Joi.boolean().required(),
-      waiter: Joi.boolean().required(),
-      email: Joi.string().required().email(),
-      password: Joi.string().min(8).required(),
-      codeWord: Joi.string().min(3).required(),
-    }),
-  }), createUser);
+  body: Joi.object().keys({
+    name: Joi.string().min(1).max(30).required(),
+    admin: Joi.boolean().required(),
+    waiter: Joi.boolean().required(),
+    email: Joi.string().required().email(),
+    password: Joi.string().min(8).required(),
+    codeWord: Joi.string().min(3).required(),
+  }),
+}), createUser);
 
 module.exports = router;

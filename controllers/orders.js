@@ -109,7 +109,6 @@ module.exports.updateDoneStatus = (req, res, next) => {
 };
 module.exports.getReceipt = (req, res) => {
   const { object, name } = req.body;
-  console.log(name);
   const data = JSON.stringify(object);
   const fileName = `ordersReceipt\\${name}.txt`;
 

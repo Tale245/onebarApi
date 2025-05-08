@@ -1,4 +1,4 @@
-const { download, downloadOne } = require('../controllers/download');
+const { downloadOne } = require('../controllers/download');
 
 const router = require('express').Router();
 
